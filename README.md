@@ -1,104 +1,231 @@
-# Jessy - Assistant numérique personnalisé avec IA locale
+## Memory
 
-**Jessy** est une application console .NET 10 qui connecte un modèle LLM local (via Ollama) à une personnalité configurable, avec mémoire à court et long terme gérée par Qdrant.
+# Memory Service
 
-## Fonctionnalités
+Microservice de gestion de la mï¿½moire vectorielle pour Jessy.
 
-- **Personnalité configurable** : définis identité, traits, valeurs, style de communication dans `personality.json`.
-- **Mémoire contextuelle** :
-  - **Court terme** : derniers échanges (max 200 messages, 3 jours) dans `history.json`, fenêtrés à chaque tour.
-  - **Long terme** : messages embedés dans Qdrant (collection explicite) avec score de récurrence et éviction.
-  - **Mémoire intuitive** : les réponses assistant récurrentes peuvent migrer vers une collection dédiée avant éviction.
-- **LLM local** : API OpenAI-compatible (Ollama) avec modèle ajustable (`llama3.3:70b` par défaut).
+## Endpoints
+
+### POST /memories/upsert
+
+Ajoute un souvenir en mï¿½moire.
+
+**Body :**
+```json
+{
+  "sense": 3,
+  "origin": 0,
+  "text": "Le texte ï¿½ mï¿½moriser"
+}
+```
+
+**Paramï¿½tres :**
+
+| Champ | Type | Description |
+|-------|------|-------------|
+| `sense` | int | Source sensorielle du souvenir |
+| `origin` | int | Origine (interne/externe) |
+| `text` | string | Contenu textuel ï¿½ mï¿½moriser |
+
+**Valeurs `sense` (SourceSense) :**
+
+| Valeur | Nom | Description |
+|--------|-----|-------------|
+| 0 | Smell | Souvenir liï¿½ ï¿½ une odeur |
+| 1 | Taste | Souvenir liï¿½ ï¿½ un goï¿½t |
+| 2 | Sight | Souvenir visuel |
+| 3 | Hearing | Souvenir auditif (parole, son) |
+| 4 | Touch | Souvenir tactile |
+
+**Valeurs `origin` (SourceOrigin) :**
+
+| Valeur | Nom | Description |
+|--------|-----|-------------|
+| 0 | Internal | Pensï¿½e, rï¿½flexion propre ï¿½ l'IA |
+| 1 | External | Information reï¿½ue de l'extï¿½rieur |
+
+**Rï¿½ponse :** `204 No Content`
+
+---
+
+### POST /memories/search
+
+Recherche des souvenirs similaires ï¿½ une requï¿½te.
+
+**Body :**
+```json
+{
+  "query": "Texte de recherche",
+  "topK": 10
+}
+```
+
+**Paramï¿½tres :**
+
+| Champ | Type | Description |
+|-------|------|-------------|
+| `query` | string | Texte de la requï¿½te |
+| `topK` | int | Nombre max de rï¿½sultats (dï¿½faut: config) |
+
+**Rï¿½ponse :** `200 OK`
+```json
+{
+  "results": [
+    {
+      "id": "uuid",
+      "role": "ouie-externe",
+      "text": "Contenu du souvenir",
+      "timestamp": "2025-01-15T12:00:00Z",
+      "recurrenceScore": 5,
+      "lastRecallTimestamp": "2025-01-15T14:00:00Z",
+      "hybridScore": 0.85
+    }
+  ]
+}
+```
+
+---
+
+### GET /healthz
+
+Vï¿½rifie l'ï¿½tat du service.
+
+**Rï¿½ponse :** `200 OK` avec `"ok"`
+
+---
+
+## Configuration
+
+Fichier `appsettings.json` :
+
+```json
+{
+  "Memory": {
+    "QdrantEndpoint": "http://localhost:6334",
+    "QdrantCollection": "memory",
+    "QdrantIntuitiveCollection": "memory_intuitive",
+    "EmbeddingsEndpoint": "http://localhost:11434/v1/embeddings",
+    "EmbeddingsModel": "nomic-embed-text",
+    "TopK": 10,
+    "RecurrenceWeight": 0.2,
+    "ReorgMinutes": 5,
+    "LongTermEvictionAgeDays": 365
+  }
+}
+```
+
+## Fonctionnement interne
+
+- **Rï¿½organisation automatique** : Un worker en tï¿½che de fond recalcule pï¿½riodiquement les scores d'ï¿½viction.
+- **Recherche hybride** : Combine similaritï¿½ vectorielle + poids de rï¿½currence.
+- **Fusion des mï¿½moires** : La recherche interroge la collection principale et intuitive, fusionne et trie par score hybride.
+
+
+
+
+## Racine
+
+# Jessy - Assistant numï¿½rique personnalisï¿½ avec IA locale
+
+**Jessy** est une application console .NET 10 qui connecte un modï¿½le LLM local (via Ollama) ï¿½ une personnalitï¿½ configurable, avec mï¿½moire ï¿½ court et long terme gï¿½rï¿½e par Qdrant.
+
+## Fonctionnalitï¿½s
+
+- **Personnalitï¿½ configurable** : dï¿½finis identitï¿½, traits, valeurs, style de communication dans `personality.json`.
+- **Mï¿½moire contextuelle** :
+  - **Court terme** : derniers ï¿½changes (max 200 messages, 3 jours) dans `history.json`, fenï¿½trï¿½s ï¿½ chaque tour.
+  - **Long terme** : messages embedï¿½s dans Qdrant (collection explicite) avec score de rï¿½currence et ï¿½viction.
+  - **Mï¿½moire intuitive** : les rï¿½ponses assistant rï¿½currentes peuvent migrer vers une collection dï¿½diï¿½e avant ï¿½viction.
+- **LLM local** : API OpenAI-compatible (Ollama) avec modï¿½le ajustable (`llama3.3:70b` par dï¿½faut).
 - **Embeddings** : `nomic-embed-text` pour la recherche vectorielle.
-- **RAG** : rappel auto du top-K depuis Qdrant avec scoring hybride (similarité + récurrence).
+- **RAG** : rappel auto du top-K depuis Qdrant avec scoring hybride (similaritï¿½ + rï¿½currence).
 
 ## Architecture rapide
 
-- `DTOs/` : modèles de config, messages, entrées mémoire.
+- `DTOs/` : modï¿½les de config, messages, entrï¿½es mï¿½moire.
 - `Services/` : appels HTTP LLM (`LlmService`), embeddings (`EmbeddingClient` via `EmbeddingService`), config, stockage conversationnel (`ConversationStorageService` + wrapper `ConversationStorage`).
-- `Repositories/` : `QdrantRepository` pour upsert/recherche/éviction.
-- `Managers/` : `MemoryBuffer`, `MemoryWindowManager` (fenêtrage CT), `MemoryManager` (flush, migration CT?LT, éviction, récurrence).
-- `Builders/` : `SystemPromptBuilder` pour le prompt système.
-- `Program.cs` : fil conducteur (chargement config/personnalité, boucle chat, retrieval, sauvegarde, réorg mémoire).
+- `Repositories/` : `QdrantRepository` pour upsert/recherche/ï¿½viction.
+- `Managers/` : `MemoryBuffer`, `MemoryWindowManager` (fenï¿½trage CT), `MemoryManager` (flush, migration CT?LT, ï¿½viction, rï¿½currence).
+- `Builders/` : `SystemPromptBuilder` pour le prompt systï¿½me.
+- `Program.cs` : fil conducteur (chargement config/personnalitï¿½, boucle chat, retrieval, sauvegarde, rï¿½org mï¿½moire).
 
-## Prérequis
+## Prï¿½requis
 
 1. .NET 10 SDK
-2. Ollama (avec les modèles `llama3.3:70b` ou plus léger, et `nomic-embed-text`)
+2. Ollama (avec les modï¿½les `llama3.3:70b` ou plus lï¿½ger, et `nomic-embed-text`)
 3. Qdrant (Docker ou binaire, port 6333)
-4. GPU conseillé pour les grands modèles
+4. GPU conseillï¿½ pour les grands modï¿½les
 
 ## Configuration
 
 ### `personality.json`
-Définis la personnalité (identité, traits, valeurs, style). Un échantillon est créé automatiquement si absent.
+Dï¿½finis la personnalitï¿½ (identitï¿½, traits, valeurs, style). Un ï¿½chantillon est crï¿½ï¿½ automatiquement si absent.
 
 ### `config.json`
-Paramètres techniques (LLM, embeddings, mémoire). Les champs clé :
+Paramï¿½tres techniques (LLM, embeddings, mï¿½moire). Les champs clï¿½ :
 - `llm.endpoint`, `llm.model`, `llm.historyFile`
 - `embeddings.model`, `embeddings.endpoint`, `embeddings.topK`
 - `memory.shortTermMaxMessages`, `memory.shortTermMaxAgeDays`, `memory.qdrantEndpoint`, `memory.qdrantCollection`, `memory.qdrantIntuitiveCollection`, `memory.recurrenceWeight`
 
-#### Score de récurrence (`recurrenceWeight`)
-- 0.0 : désactive le boost de récurrence.
-- 0.1–0.3 : boost léger (recommandé : 0.2).
+#### Score de rï¿½currence (`recurrenceWeight`)
+- 0.0 : dï¿½sactive le boost de rï¿½currence.
+- 0.1ï¿½0.3 : boost lï¿½ger (recommandï¿½ : 0.2).
 - 0.5+ : boost fort, peut remonter des souvenirs moins pertinents.
 
 ## Utilisation
 
-1. Démarre Ollama et Qdrant.
+1. Dï¿½marre Ollama et Qdrant.
 2. Lance l'application :
    ```sh
    dotnet run
    ```
-3. Saisis tes messages. Entrée vide pour quitter. L'historique court terme est fenêtré et sauvegardé, le long terme est mis à jour lors des réorganisations (buffer flush, migration CT?LT, éviction/mémoire intuitive).
+3. Saisis tes messages. Entrï¿½e vide pour quitter. L'historique court terme est fenï¿½trï¿½ et sauvegardï¿½, le long terme est mis ï¿½ jour lors des rï¿½organisations (buffer flush, migration CT?LT, ï¿½viction/mï¿½moire intuitive).
 
-## Fonctionnement détaillé
+## Fonctionnement dï¿½taillï¿½
 
-1. Chargement `personality.json` et `config.json`, construction du prompt système.
+1. Chargement `personality.json` et `config.json`, construction du prompt systï¿½me.
 2. Boucle chat :
-   - Fenêtrage court terme (`MemoryWindowManager`).
-   - Embedding de l'entrée, recherche Qdrant (explicite + intuitive), ajout des rappels au contexte.
+   - Fenï¿½trage court terme (`MemoryWindowManager`).
+   - Embedding de l'entrï¿½e, recherche Qdrant (explicite + intuitive), ajout des rappels au contexte.
    - Appel LLM, affichage, sauvegarde historique.
-   - Bufferisation des nouveaux messages (en vue de la réorg).
-3. Réorganisation mémoire (`MemoryManager`) sur inactivité ou sortie :
+   - Bufferisation des nouveaux messages (en vue de la rï¿½org).
+3. Rï¿½organisation mï¿½moire (`MemoryManager`) sur inactivitï¿½ ou sortie :
    - Flush du buffer vers Qdrant.
-   - Migration des anciens/excédents CT vers LT.
-   - Recalcule des scores d'éviction.
-   - Si un souvenir assistant est très récurrent, migration vers la collection intuitive avant suppression LT.
+   - Migration des anciens/excï¿½dents CT vers LT.
+   - Recalcule des scores d'ï¿½viction.
+   - Si un souvenir assistant est trï¿½s rï¿½current, migration vers la collection intuitive avant suppression LT.
 
 ## Tests
 
 - Projet de tests : `Jessy.Tests` (xUnit).
-- Exécution :
+- Exï¿½cution :
   ```sh
   dotnet test Jessy.Tests/Jessy.Tests.csproj
   ```
 - Couverture actuelle :
   - `MemoryBuffer` (ajout/clear snapshot).
-  - `MemoryWindowManager` (purge par âge et par volume, conservation du système).
-  - `MemoryManager` (flush buffer, migration CT?LT, éviction vers mémoire intuitive, no-op sous capacité) via fakes Qdrant/Embeddings/Storage.
+  - `MemoryWindowManager` (purge par ï¿½ge et par volume, conservation du systï¿½me).
+  - `MemoryManager` (flush buffer, migration CT?LT, ï¿½viction vers mï¿½moire intuitive, no-op sous capacitï¿½) via fakes Qdrant/Embeddings/Storage.
 
-## Publication de la documentation (CI ? dépôt public)
+## Publication de la documentation (CI ? dï¿½pï¿½t public)
 
-- Workflow : `.github/workflows/publish-docs.yml` (déclenché sur push `master` ou manuel).
-- Script : `scripts/publish-docs.ps1` génère `docs-out/` (copie `README.md`, `docs/`, samples) et pousse vers le dépôt public.
-- Secrets à configurer dans le dépôt privé (Actions ? Repository secrets) :
-  - `DOCS_REPO_TOKEN` : PAT avec `contents:write` sur le dépôt public de docs.
-  - `PUBLIC_DOCS_REPO_URL` : URL https du dépôt public (ex: `https://github.com/<org>/Jessy-docs.git`).
-- Branche cible publique par défaut : `main` (modifie `-Branch` dans le workflow/PS1 si besoin).
+- Workflow : `.github/workflows/publish-docs.yml` (dï¿½clenchï¿½ sur push `master` ou manuel).
+- Script : `scripts/publish-docs.ps1` gï¿½nï¿½re `docs-out/` (copie `README.md`, `docs/`, samples) et pousse vers le dï¿½pï¿½t public.
+- Secrets ï¿½ configurer dans le dï¿½pï¿½t privï¿½ (Actions ? Repository secrets) :
+  - `DOCS_REPO_TOKEN` : PAT avec `contents:write` sur le dï¿½pï¿½t public de docs.
+  - `PUBLIC_DOCS_REPO_URL` : URL https du dï¿½pï¿½t public (ex: `https://github.com/<org>/Jessy-docs.git`).
+- Branche cible publique par dï¿½faut : `main` (modifie `-Branch` dans le workflow/PS1 si besoin).
 - Usage local (sans push) :
   ```sh
   pwsh ./scripts/publish-docs.ps1 -OutputPath docs-out -PublicRepoUrl "https://github.com/<org>/Jessy-docs.git" -Branch main
   ```
 
-## Dépannage
+## Dï¿½pannage
 
-- **LLM** : `curl http://localhost:11434/api/tags` (vérifier Ollama et le modèle).
+- **LLM** : `curl http://localhost:11434/api/tags` (vï¿½rifier Ollama et le modï¿½le).
 - **Embeddings** : `ollama pull nomic-embed-text`.
 - **Qdrant** : `curl http://localhost:6333/collections`.
-- **OOM GPU** : réduire `llm.maxTokens` ou prendre un modèle plus léger.
+- **OOM GPU** : rï¿½duire `llm.maxTokens` ou prendre un modï¿½le plus lï¿½ger.
 
 ## Licence
 
@@ -107,3 +234,7 @@ Projet personnel. Utilise et modifie librement.
 ## Contact
 
 Ouvre une issue ou contacte le mainteneur pour toute question.
+
+
+
+
