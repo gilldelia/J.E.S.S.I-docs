@@ -92,7 +92,7 @@ dotnet test
 - Génération/push des docs : `scripts/publish-docs.ps1` (utilise `docs-out/`).
 
 ## Licence
-Projet personnel, utilisable et modifiable librement. Voir le fichier [LICENSE](LICENSE) pour les conditions complètes.
+Voir le fichier [LICENSE](LICENSE) pour les conditions complètes.
 
 
 
