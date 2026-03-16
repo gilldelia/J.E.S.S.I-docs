@@ -32,6 +32,46 @@ dotnet test
 - Workflow GitHub Actions : `.github/workflows/publish-docs.yml`.
 - Génération/push des docs : `scripts/publish-docs.ps1` (utilise `docs-out/`).
 
+## Déploiement Azure (Memory)
+
+L'infrastructure est définie en Bicep dans `infra/`. Le pipeline CI/CD (`.github/workflows/deploy-memory.yml`) déploie automatiquement sur un push dans `main`.
+
+### Prérequis Azure (à activer une seule fois)
+1. Créer un abonnement Azure et un Resource Group.
+2. Créer un Service Principal :
+   ```sh
+   az ad sp create-for-rbac --name "jessi-deploy" --role Contributor \
+     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+     --sdk-auth
+   ```
+3. Configurer les **secrets GitHub** du repo :
+
+   | Secret | Description |
+   |---|---|
+   | `AZURE_CREDENTIALS` | JSON complet retourné par la commande ci-dessus |
+   | `AZURE_RESOURCE_GROUP` | Nom du Resource Group |
+   | `ACR_LOGIN_SERVER` | FQDN de l'ACR (disponible après le 1er déploiement Bicep) |
+   | `ACR_USERNAME` | Nom d'utilisateur ACR |
+   | `ACR_PASSWORD` | Mot de passe ACR |
+   | `OPENAI_API_KEY` | Clé API Azure OpenAI (optionnel) |
+
+4. Premier déploiement (provisionne l'infra) :
+   ```sh
+   az deployment group create \
+     --resource-group <RESOURCE_GROUP> \
+     --template-file infra/main.bicep \
+     --parameters infra/main.bicepparam
+   ```
+5. Récupérer les valeurs ACR dans les outputs et les ajouter aux secrets GitHub.
+6. Les prochains push sur `main` (modifiant `Memory/` ou `infra/`) déclenchent le déploiement automatique.
+
+### Architecture déployée
+- **Azure Container Apps** (Consumption) : Memory API + Qdrant.
+- **Azure Files** : persistance Qdrant.
+- **Azure Container Registry** (Basic) : images Docker.
+- **Azure Key Vault** : secrets (clé API).
+- **Log Analytics** : logs structurés.
+
 ## Licence
 Voir le fichier [LICENSE](LICENSE) pour les conditions complètes.
 
