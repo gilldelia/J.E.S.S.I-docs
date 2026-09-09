@@ -2,7 +2,7 @@
 
 # Memory.Contracts
 
-Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/memory-experience.md) complètent les
+Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/docs/memory-experience.md) complètent les
 signaux existants avec l'attribution émotionnelle et les circonstances
 d'apprentissage exprimées/interprétées. Leurs champs sont facultatifs ; les
 anciens souvenirs restent lisibles sans migration ni émotion inventée.

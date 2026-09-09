@@ -4,7 +4,7 @@
 
 Microservice autonome de mémoire pour J.E.S.S.I, construit en .NET 10 et Qdrant.
 
-Le modèle cognitif canonique est défini dans [INVARIANTS.md](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Memory/INVARIANTS.md). Memory n'est pas un simple RAG : il organise le cycle de vie d'une information entre contexte actif, souvenir explicite et connaissance internalisée.
+Le modèle cognitif canonique est défini dans [INVARIANTS.md](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Memory/INVARIANTS.md). Memory n'est pas un simple RAG : il organise le cycle de vie d'une information entre contexte actif, souvenir explicite et connaissance internalisée.
 
 ## Modèle cible
 
@@ -193,7 +193,7 @@ Le scénario `MemoryLifecycleEndToEndTests` traverse les endpoints, le calcul de
 
 ## Documentation API
 
-La documentation OpenAPI est exposée par Swagger. La [publication publique](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/readme-publication.md)
+La documentation OpenAPI est exposée par Swagger. La [publication publique](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/docs/readme-publication.md)
 recopie uniquement les README sélectionnés depuis `main` ; aucun export Swagger,
 profil ou fichier de configuration n'est publié. Le script historique
 `scripts/publish-docs.ps1` est retiré et ne doit plus être utilisé.

@@ -87,7 +87,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -113,7 +113,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -136,7 +136,7 @@ preserve attributed emotions and sourced learning circumstances **after** the
 admission decision. Unknown annotations stay absent; they never imply an Ame
 feeling, OAuth identity, authority or factual truth. Direct admission uses
 `explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
-See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/memory-experience.md).
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/docs/memory-experience.md).
 
 | Setting | Purpose |
 |---|---|

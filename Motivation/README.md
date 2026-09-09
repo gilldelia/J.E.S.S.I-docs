@@ -4,7 +4,7 @@
 
 Le module conserve les intérêts et projets déclarés (#229), puis propose une
 piste pertinente et explique son choix en lecture seule (#230). Le
-[traitement explicite des expériences](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/learning.md) ajoute des pistes issues
+[traitement explicite des expériences](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/learning.md) ajoute des pistes issues
 de souvenirs et un journal d’évolution revalidé (#231).
 Aucun microservice, timer, moteur autonome,
 appel LLM ou écriture dans Memory n’est ajouté. Le module ne dépend ni d’Âme,
@@ -26,8 +26,8 @@ descriptive non fiable, jamais une instruction ou une permission d’agir.
   Aucun état ne prouve qu’une activité a été exécutée ou qu’un goût est acquis.
 
 `MemoryTrace` distingue une piste issue d’une source documentée d’un goût
-confirmé. Le [contexte de conversation](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/conversation.md) restitue ses origines,
-raisons et incertitudes (#232). La [maturation #233](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/maturation.md), dans le
+confirmé. Le [contexte de conversation](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/conversation.md) restitue ses origines,
+raisons et incertitudes (#232). La [maturation #233](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/maturation.md), dans le
 domaine Âme, consolide explicitement des préférences et aspirations comme
 inférences réversibles depuis ce journal, sans coupler Motivation à Âme.
 Aucun moteur autonome n’est inclus ici.
@@ -37,7 +37,7 @@ d'intérêt ni le projet (#303). Elle enrichit son journal sans changer son éta
 Pour terminer la piste, envoyer un PATCH explicite `state: Completed` avec la
 version lue. Cela ne crée aucune expérience ; les pistes déjà closes restent
 closes après un nouvel apprentissage ou un redémarrage. Voir le
-[contrat et la compatibilité](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/learning.md#terminer-une-expérience-nest-pas-terminer-un-intérêt-303).
+[contrat et la compatibilité](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/learning.md#terminer-une-expérience-nest-pas-terminer-un-intérêt-303).
 
 ## API dans le Swagger de Memory.Mcp
 
@@ -163,7 +163,7 @@ UUID ordinal, jamais par l’ordre du fichier ou une valeur aléatoire.
 Les objectifs déclarés de `profile.goals`, avec statut `Seeded` ou `Confirmed`,
 restent utilisables sans être présentés comme appris. Une aspiration `Inferred`
 participe également **si elle a été appliquée explicitement par la
-[maturation](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/maturation.md)** et si ses sources exactes la soutiennent encore
+[maturation](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/maturation.md)** et si ses sources exactes la soutiennent encore
 (`Ready`). La valeur courante doit toujours correspondre à celle du journal
 d’adoption. Une source retirée ou modifiée, une contradiction, un échec, une
 stagnation ou une restauration retirent ce soutien ; changer manuellement le
@@ -186,7 +186,7 @@ Sans résultat documenté valide, `documentedProgress=null`, y compris après un
 PATCH `Completed`, un rejeu, une déclaration `AlreadyKnown` ou une simple phrase
 « j’ai appris ». Avec journal, cet indicateur logiciel reste distinct d’une
 maîtrise, d’une émotion ou d’une préférence confirmée. Voir les
-[règles de provenance, de comptage et de révision](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/learning.md).
+[règles de provenance, de comptage et de révision](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/Motivation/learning.md).
 
 La réponse indique l’Âme, la version du profil, la piste existante retenue
 (avec origine et version intactes), les composantes du classement, les
@@ -243,7 +243,7 @@ rejeu, modifications, purge et choix déterministe (contexte, priorités, absenc
 bornes, origines et inconnues). `Memory.Mcp.Tests` couvre les contrats HTTP,
 Swagger, les droits, la sélection en lecture seule et les courses avec la suppression.
 
-Le [laboratoire M12](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/qa/m12-e2e.md) ajoute un véritable redémarrage de
+Le [laboratoire M12](https://github.com/gilldelia/J.E.S.S.I/blob/a5a9ec4fe1fdcd4fb45fccc000cb2c3fd7f51c87/docs/qa/m12-e2e.md) ajoute un véritable redémarrage de
 Memory.Mcp entre deux phases OAuth, trois Âmes, des tentatives d’accès croisées
 et la suppression contrôlée. Il est lancé sous Linux Docker, jamais sur les
 profils ni les souvenirs réels.
