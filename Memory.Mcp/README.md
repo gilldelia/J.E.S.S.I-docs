@@ -87,7 +87,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -113,7 +113,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -130,6 +130,13 @@ configured Keycloak owner. Their tracked seeds stay unbound and in
 `AdmitShortTerm` decision upstream. `memory_remember` deliberately bypasses
 that gate for a direct, caller-controlled admission. Feedback records an
 observed outcome for an existing intuitive rule.
+
+Optional `experience` annotations on `memory_perceive` / HTTP perceptions
+preserve attributed emotions and sourced learning circumstances **after** the
+admission decision. Unknown annotations stay absent; they never imply an Ame
+feeling, OAuth identity, authority or factual truth. Direct admission uses
+`explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/memory-experience.md).
 
 | Setting | Purpose |
 |---|---|

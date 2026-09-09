@@ -29,7 +29,7 @@ ressenties, ni reproduction fidèle d'une personne.
   classifieur local, une découverte, une confirmation encore fragile ou une
   nuance peut être retenue ; une répétition sans apport peut rester éphémère.
   La comparaison a lieu avant la décision, dans la mémoire autorisée.
-  Voir les [règles et limites de cette comparaison](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/contextual-perception.md).
+  Voir les [règles et limites de cette comparaison](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/contextual-perception.md).
 - **Des intérêts issus de traces, pas des goûts copiés.** Le carnet de chaque
   Âme commence vide. Des appels explicites peuvent y ajouter des projets ou
   traiter des souvenirs sourcés pour faire émerger et réviser des pistes.
@@ -56,7 +56,7 @@ ressenties, ni reproduction fidèle d'une personne.
 
 Ce parcours ne réentraîne pas les poids du LLM. Ici, « apprendre » désigne
 l'évolution des souvenirs, des traces documentées et, après adoption, du profil.
-Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Memory/INVARIANTS.md) décrivent les règles du cycle.
+Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Memory/INVARIANTS.md) décrivent les règles du cycle.
 
 ## Les briques du projet
 
@@ -70,9 +70,9 @@ Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830c
 | [Memory.Mcp](Memory.Mcp/README.md) | Entrées HTTP/MCP, contrôle OAuth et coordination des modules. |
 | [Ame.Console](Ame.Console/README.md) | Ancien client de compatibilité, pas le point d'entrée du parcours OAuth par Âme. |
 
-Pour contribuer, commencer par la [carte du projet](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/project-map.md) :
+Pour contribuer, commencer par la [carte du projet](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/project-map.md) :
 elle indique les points d'entrée, contrats, invariants et tests à lire selon
-l'évolution, sans parcourir tout le dépôt. L'[architecture cible](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/architecture/cognitive-target.md)
+l'évolution, sans parcourir tout le dépôt. L'[architecture cible](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/architecture/cognitive-target.md)
 distingue les modules existants des travaux futurs.
 
 ## Essayer en local
@@ -81,11 +81,11 @@ L'accès au dépôt source est nécessaire. Sur Windows, utiliser **PowerShell 7
 et **Docker Desktop en mode conteneurs Linux** ; ne pas lancer les projets
 .NET, leurs DLL ou leurs tests directement sur l'hôte.
 
-Le [guide local](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/runbooks/local-memory-real.md) détaille les modèles,
+Le [guide local](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/runbooks/local-memory-real.md) détaille les modèles,
 le support GPU NVIDIA du profil fourni et le stockage persistant. Prévoir les
 téléchargements des images et modèles au premier démarrage. Le profil local
 à jeton statique sert au diagnostic ; pour tester les comptes et l'isolation
-par Âme, suivre le [guide OAuth auto-hébergé](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/runbooks/home-oauth.md).
+par Âme, suivre le [guide OAuth auto-hébergé](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/runbooks/home-oauth.md).
 
 ### Préparer les services
 
@@ -116,7 +116,7 @@ HTTPS configurée, pas le port local de Keycloak. Avant de se connecter,
 cette autorité doit être accessible, avec un certificat valide et des URL
 de retour cohérentes, et appartenir à **sa propre installation**.
 Le guide distingue la préparation DNS/réseau du
-[démarrage de la passerelle HTTPS](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/runbooks/home-oauth.md#démarrer-https).
+[démarrage de la passerelle HTTPS](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/runbooks/home-oauth.md#démarrer-https).
 Les domaines préconfigurés ne sont pas un service fourni aux contributeurs.
 Ne pas désactiver TLS ou les contrôles d'identité pour franchir cette étape.
 
@@ -129,7 +129,7 @@ le parcours utilisateur OAuth :
 - se connecter, puis lister les Âmes avec `GET /v1/ames` ;
 - choisir l'`ameId` retourné pour les routes `/v1/ames/{ameId}/...` ;
 - consulter les [contrats API/MCP](Memory.Mcp/README.md) et le
-  [protocole d'essai sur une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/maturation.md#essai-utilisateur-sur-une-semaine).
+  [protocole d'essai sur une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/Motivation/maturation.md#essai-utilisateur-sur-une-semaine).
 
 Les scénarios automatisés qui créent des données doivent toujours viser le
 laboratoire jetable, jamais les souvenirs personnels. Ne jamais publier les
@@ -141,6 +141,9 @@ L'interface MCP est exposée sur `/mcp`. `ame_begin` démarre la sélection
 pour une conversation ; les appels suivants conservent le même `ameId` et
 le même `sessionId`. `ame_context` recharge le profil descriptif et ses
 pistes ; `memory_perceive` et `memory_recall` alimentent et consultent la mémoire.
+Le client peut joindre des [émotions attribuées et circonstances d'apprentissage](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/memory-experience.md)
+aux observations : déclarations et interprétations restent séparées, sans
+inventer ce qui est inconnu ni constituer un état affectif de JESSI.
 
 **Connexion ne signifie pas écoute globale.** J.E.S.S.I ne reçoit que les
 appels effectivement envoyés par le client ; elle ne lit pas automatiquement
@@ -155,7 +158,7 @@ La CI et la QA s'exécutent chez l'opérateur, dans une **VM Linux jetable avec
 Docker**, indépendamment de GitHub Actions. Un cycle complet vérifie le SHA
 exact : build, cinq suites .NET, tests des outils, dépendances, API/MCP, OAuth,
 séparation entre utilisateurs et Âmes, redémarrage réel et nettoyage.
-Voir la [CI locale](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/local-ci.md) et la [certification M12](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/qa/m12-e2e.md).
+Voir la [CI locale](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/local-ci.md) et la [certification M12](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/qa/m12-e2e.md).
 
 Le lanceur préautorisé permet les cycles ordinaires sans nouvelle UAC après
 son installation administrative. Une mise à jour de sa partie privilégiée
@@ -164,10 +167,10 @@ reste une intervention distincte et contrôlée.
 Pour proposer une contribution :
 
 1. Définir un résultat limité et ses critères d'acceptation dans une issue.
-2. Lire les [règles du dépôt](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/AGENTS.md), puis le parcours de la carte concerné.
+2. Lire les [règles du dépôt](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/AGENTS.md), puis le parcours de la carte concerné.
 3. Développer sur une branche dédiée depuis `dev`, avec tests et documentation.
    **Une fonctionnalité ou un bug = une PR**, y compris pour les outils et la doc.
-4. Suivre la [revue indépendante et les promotions](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/development-workflow.md) :
+4. Suivre la [revue indépendante et les promotions](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/development-workflow.md) :
    PR vers `dev`, CI post-fusion, promotion `stage`, QA du SHA exact,
    puis PR vers `main`. Un seul rôle travaille à la fois ; un bug bloquant
    passe avant les fonctionnalités.
@@ -196,7 +199,7 @@ Azure et l'extension de l'observabilité restent en pause.
 sans donner accès au dépôt source privé. Les liens vers du code, des contrats
 ou des guides internes nécessitent cet accès.
 
-La seule exception GitHub Actions autorisée est la [publication des README](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/docs/readme-publication.md)
+La seule exception GitHub Actions autorisée est la [publication des README](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/docs/readme-publication.md)
 sélectionnés depuis `main`. Elle conserve les autres fichiers du dépôt public
 et ne copie ni configuration, ni profil, ni guide interne. Le secret d'accès
 au seul dépôt documentaire est nécessaire ; la CI et la QA restent locales.
@@ -204,4 +207,4 @@ L'ancien `scripts/publish-docs.ps1` est retiré et n'effectue plus aucune copie.
 
 ## Licence
 
-Voir le fichier [LICENSE](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/LICENSE) du dépôt source.
+Voir le fichier [LICENSE](https://github.com/gilldelia/J.E.S.S.I/blob/5e4a4f011ec041a978d65336d9adcc248df5d9ed/LICENSE) du dépôt source.
