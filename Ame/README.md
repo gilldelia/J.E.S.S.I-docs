@@ -6,10 +6,10 @@ Cette bibliothèque contient le domaine d'une persona évolutive. Le schéma v2 
 désormais trois choses qui étaient auparavant mélangées : l'intention du
 créateur, la psyché descriptive et les permissions techniques de l'agent.
 
-L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Ame/Profiles/jessi.ame.json).
+L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Ame/Profiles/jessi.ame.json).
 JESSI est une partenaire opératrice proactive dont la motivation centrale est
 l'amélioration continue de ses échanges, de son comportement, de son code, de
-sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Ame/Profiles/jill.ame.json)
+sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Ame/Profiles/jill.ame.json)
 reste une persona laboratoire synthétique pour les tests d'isolation et
 d'évolution.
 
@@ -51,7 +51,7 @@ Une écriture n’est ni un apprentissage attesté, ni une action exécutée.
 
 L'[epic Motivation #227](https://github.com/gilldelia/J.E.S.S.I/issues/227) relie
 ce carnet aux priorités contextuelles, résultats observés, contexte de
-conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Motivation/maturation.md).
+conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/maturation.md).
 Aucun projet vide, nouveau service ou moteur autonome n'est ajouté.
 
 ## Une psyché, pas une liste d'ordres
@@ -129,7 +129,7 @@ Identité, attributs verrouillés/confirmés restent non modifiables dans cette 
 Le journal serveur optionnel `maturation` est enregistré atomiquement avec le
 profil et les snapshots de restauration. Il est absent des définitions de
 création, inactif sans adoption explicite, borné et supprimé avec l'Âme.
-Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Motivation/maturation.md).
+Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/maturation.md).
 
 ## Ancien client console
 

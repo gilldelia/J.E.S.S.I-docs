@@ -87,7 +87,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -113,7 +113,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/1b7d98908454776c1334ab655e58373949b6816c/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/9d082e830ca9b23db59f78a245dccffc6e47ea5c/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
