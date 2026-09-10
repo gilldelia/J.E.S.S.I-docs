@@ -6,10 +6,10 @@ Cette bibliothèque contient le domaine d'une persona évolutive. Le schéma v2 
 désormais trois choses qui étaient auparavant mélangées : l'intention du
 créateur, la psyché descriptive et les permissions techniques de l'agent.
 
-L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Ame/Profiles/jessi.ame.json).
+L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Ame/Profiles/jessi.ame.json).
 JESSI est une partenaire opératrice proactive dont la motivation centrale est
 l'amélioration continue de ses échanges, de son comportement, de son code, de
-sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Ame/Profiles/jill.ame.json)
+sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Ame/Profiles/jill.ame.json)
 reste une persona laboratoire synthétique pour les tests d'isolation et
 d'évolution.
 
@@ -51,7 +51,7 @@ Une écriture n’est ni un apprentissage attesté, ni une action exécutée.
 
 L'[epic Motivation #227](https://github.com/gilldelia/J.E.S.S.I/issues/227) relie
 ce carnet aux priorités contextuelles, résultats observés, contexte de
-conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Motivation/maturation.md).
+conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/maturation.md).
 Aucun projet vide, nouveau service ou moteur autonome n'est ajouté.
 
 ## Une psyché, pas une liste d'ordres
@@ -129,7 +129,22 @@ Identité, attributs verrouillés/confirmés restent non modifiables dans cette 
 Le journal serveur optionnel `maturation` est enregistré atomiquement avec le
 profil et les snapshots de restauration. Il est absent des définitions de
 création, inactif sans adoption explicite, borné et supprimé avec l'Âme.
-Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Motivation/maturation.md).
+Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/maturation.md).
+
+## État affectif logiciel distinct
+
+`AmeAffectEngine` calcule un snapshot descriptif borné, conservé dans le champ
+serveur optionnel `affect`. Il commence inconnu : ni les dimensions durables
+de `psyche.affect`, ni les émotions du propriétaire ne le remplissent. La
+passerelle autorisée relit les souvenirs exacts ; seules les annotations
+attribuées à l'Âme contribuent, avec moyennes exprimées et interprétées séparées.
+La lecture ne modifie rien et retire du résumé actuel les sources disparues
+ou modifiées. L'actualisation explicite remplace au plus 32 sources et avance
+les métadonnées du profil sans modifier ses traits, droits ou maturation.
+La dernière écriture conditionnelle est rejouable ; les plus anciennes sont
+refusées. Le snapshot disparaît avec le profil. Voir le
+[contrat, les champs et les limites](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/affective-state.md) : pas de ressenti
+humain attesté, boucle de fond ni intégration automatique au ton conversationnel.
 
 ## Ancien client console
 

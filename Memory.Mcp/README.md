@@ -4,7 +4,8 @@
 
 `Memory.Mcp` is a .NET 10 stateless Streamable HTTP adapter at
 `http://127.0.0.1:8082/mcp`. It exposes `ame_begin`, `ame_list`, `ame_select`,
-`ame_context`, `ame_learn_interests`, `memory_recall`, `memory_explain`, `memory_perceive`,
+`ame_context`, `ame_learn_interests`, `ame_affect_context`, `ame_affect_update`,
+`memory_recall`, `memory_explain`, `memory_perceive`,
 `memory_remember`, and `memory_feedback`. It calls the versioned Memory API
 using a server-configured API key; it has no direct Qdrant, generic RAG,
 C.O.R.E.X, MinOrchestrator, or Azure access. Its only optional model access is
@@ -87,7 +88,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -113,7 +114,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -136,11 +137,25 @@ preserve attributed emotions and sourced learning circumstances **after** the
 admission decision. Unknown annotations stay absent; they never imply an Ame
 feeling, OAuth identity, authority or factual truth. Direct admission uses
 `explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
-See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/docs/memory-experience.md).
-Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/5e7eeb46beb376d73b1d6383701dc448c6c2e5f7/docs/relational-memory.md) use
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/memory-experience.md).
+Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/relational-memory.md) use
 `expressedRelationEpisode` / `inferredRelationEpisode` in `experience`, or
 `relationEpisode` in each signal input set. Grouping keys remain descriptive;
 they grant no access and never compute a commitment's completion.
+
+`GET` / `PUT /v1/ames/{ameId}/affect` expose a separate, initially unknown
+software-affect snapshot. The PUT takes only `expectedVersion` and 0–32 exact
+`memoryIds`: it replaces the sources; an empty list clears the state, not memory.
+Only Ame-attributed emotion annotations participate, with expressed/inferred
+means kept separate. Reading requires ReadMemory; updating requires both
+ReadMemory and WriteMemory, never a free scope or owner identity. The selected
+session-bound MCP equivalents are `ame_affect_context` / `ame_affect_update`.
+The latter is marked destructive because it replaces/clears a snapshot.
+Latest conditional retries are idempotent; older writes conflict, and absent or
+changed sources cease contributing on the next read. Persistence is atomic with
+the profile and removed with the Ame. No stable traits, permissions, owner tastes
+or background loops change. The existing conversation context/client does not
+consume this state yet. See the [algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/affective-state.md).
 
 | Setting | Purpose |
 |---|---|
@@ -172,7 +187,7 @@ bash scripts/local/memory-local.sh verify
 ```
 
 The verification builds non-root Memory and MCP images, waits for both health
-endpoints, initializes MCP, checks the exact ten-tool surface, and exercises
+endpoints, initializes MCP, checks the exact twelve-tool surface, and exercises
 recall plus controlled admission.
 
 The secure home-hosted installation and its OAuth procedure are documented in
