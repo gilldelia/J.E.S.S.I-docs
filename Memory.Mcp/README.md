@@ -12,6 +12,11 @@ C.O.R.E.X, MinOrchestrator, or Azure access. Its only optional model access is
 the local semantic-classification adapter implementing Perception's contract.
 This host owns the prompt, HTTP and JSON concerns; Perception validates and
 interprets the proposed scores before they can influence persistence.
+`ame_context` also accepts an optional `situation` to obtain a temporary view
+of existing profile tensions; the read-only HTTP equivalent is
+`POST /v1/ames/sessions/{sessionId}/context`. The additive `tensionContext` is
+descriptive client interpretation, not learned personality or permissions.
+See the [field guide and limitations](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/docs/contextual-tensions.md).
 Persona profiles and access policies come from the `Ame` domain library;
 this service does not reference or embed the legacy `Ame.Console` executable.
 
@@ -88,7 +93,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -114,7 +119,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -137,8 +142,8 @@ preserve attributed emotions and sourced learning circumstances **after** the
 admission decision. Unknown annotations stay absent; they never imply an Ame
 feeling, OAuth identity, authority or factual truth. Direct admission uses
 `explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
-See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/memory-experience.md).
-Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/relational-memory.md) use
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/docs/memory-experience.md).
+Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/docs/relational-memory.md) use
 `expressedRelationEpisode` / `inferredRelationEpisode` in `experience`, or
 `relationEpisode` in each signal input set. Grouping keys remain descriptive;
 they grant no access and never compute a commitment's completion.
@@ -155,7 +160,7 @@ Latest conditional retries are idempotent; older writes conflict, and absent or
 changed sources cease contributing on the next read. Persistence is atomic with
 the profile and removed with the Ame. No stable traits, permissions, owner tastes
 or background loops change. The existing conversation context/client does not
-consume this state yet. See the [algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/954486ecd829551d59d4a61f84f276f08c6993e9/docs/affective-state.md).
+consume this state yet. See the [algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/3250dcffe488e2efea0592a9e5e2f90c7c358d56/docs/affective-state.md).
 
 | Setting | Purpose |
 |---|---|
