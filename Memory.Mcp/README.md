@@ -16,7 +16,7 @@ interprets the proposed scores before they can influence persistence.
 of existing profile tensions; the read-only HTTP equivalent is
 `POST /v1/ames/sessions/{sessionId}/context`. The additive `tensionContext` is
 descriptive client interpretation, not learned personality or permissions.
-See the [field guide and limitations](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/docs/contextual-tensions.md).
+See the [field guide and limitations](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/docs/contextual-tensions.md).
 Persona profiles and access policies come from the `Ame` domain library;
 this service does not reference or embed the legacy `Ame.Console` executable.
 
@@ -93,7 +93,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -119,7 +119,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -142,8 +142,8 @@ preserve attributed emotions and sourced learning circumstances **after** the
 admission decision. Unknown annotations stay absent; they never imply an Ame
 feeling, OAuth identity, authority or factual truth. Direct admission uses
 `explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
-See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/docs/memory-experience.md).
-Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/docs/relational-memory.md) use
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/docs/memory-experience.md).
+Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/docs/relational-memory.md) use
 `expressedRelationEpisode` / `inferredRelationEpisode` in `experience`, or
 `relationEpisode` in each signal input set. Grouping keys remain descriptive;
 they grant no access and never compute a commitment's completion.
@@ -165,7 +165,7 @@ An upstream outage fails the context instead of returning a stale or fabricated
 mood. The reference client validates and forwards it as untrusted data; no update
 or required tone is inferred, and actual LLM wording is not certified by transport
 tests. Older contexts may omit the additive field. See the
-[algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/eea7a64bb7acd7daf016af858441ff789c22a56f/docs/affective-state.md).
+[algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/8220b2b07f31abaf6e2bad95ea7df66136b24b2c/docs/affective-state.md).
 
 | Setting | Purpose |
 |---|---|
