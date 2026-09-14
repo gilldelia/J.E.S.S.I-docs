@@ -16,17 +16,17 @@ interprets the proposed scores before they can influence persistence.
 of existing profile tensions; the read-only HTTP equivalent is
 `POST /v1/ames/sessions/{sessionId}/context`. The additive `tensionContext` is
 descriptive client interpretation, not learned personality or permissions.
-See the [field guide and limitations](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/contextual-tensions.md).
+See the [field guide and limitations](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/contextual-tensions.md).
 Persona profiles and access policies come from the `Ame` domain library;
 this service does not reference or embed the legacy `Ame.Console` executable.
 
-The optional [Ame dashboard](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/runbooks/ame-dashboard.md) adds server-rendered
+The optional [Ame dashboard](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/runbooks/ame-dashboard.md) adds server-rendered
 French pages at `/dashboard`, disabled by default. It uses separate cookie/OIDC
 schemes and calls the existing HTTP API with the owner's token, never the store.
 OAuth tickets are bounded and held in server RAM; the MCP transport stays stateless.
 It requires the explicitly approved Microsoft OpenIdConnect component (MIT).
 
-The optional [A2b device-authority contract](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/device-usage.md) adds
+The optional [A2b device-authority contract](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/device-usage.md) adds
 owner-managed application/Âme bindings over HTTP, initially absent, and a
 separate service-only verification endpoint. Human management requires recent
 MFA; DeviceHub verification requires its own dedicated OAuth audience/client
@@ -107,7 +107,7 @@ Context contract **1.1** also returns `motivation`: up to eight current notebook
 interests with origins, reasons, states and revalidated documentary support,
 separate from stable traits and owner intent. No learning, background action or
 cross-session cache is created by this read. See the [conversation integration
-contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/Motivation/conversation.md). A client
+contract and separate LLM evaluation](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/Motivation/conversation.md). A client
 must actually consume these fields; connecting MCP is not a global automatic
 integration into every conversation.
 
@@ -133,7 +133,7 @@ refresh `ame_context`. An empty lot writes nothing, and retries do not reinforce
 evidence. Reads and perception do not implicitly call learning. No owner taste,
 personality adoption, memory write or background work is added. Disabled routing
 returns `ame_routing_disabled` instead of learning in the legacy scope. See the
-[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/Motivation/learning.md).
+[source contract, MCP example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/Motivation/learning.md).
 
 When routing is disabled, the public compatibility Ame identifier is always
 `personal`; it maps server-side to `TrustedScopeId`. The configured scope may
@@ -156,8 +156,8 @@ preserve attributed emotions and sourced learning circumstances **after** the
 admission decision. Unknown annotations stay absent; they never imply an Ame
 feeling, OAuth identity, authority or factual truth. Direct admission uses
 `explicitSignals` / `inferredSignals` with `emotion` and `learningContext`.
-See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/memory-experience.md).
-Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/relational-memory.md) use
+See the [field-by-field example and limits](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/memory-experience.md).
+Sourced [relational episodes](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/relational-memory.md) use
 `expressedRelationEpisode` / `inferredRelationEpisode` in `experience`, or
 `relationEpisode` in each signal input set. Grouping keys remain descriptive;
 they grant no access and never compute a commitment's completion.
@@ -179,7 +179,7 @@ An upstream outage fails the context instead of returning a stale or fabricated
 mood. The reference client validates and forwards it as untrusted data; no update
 or required tone is inferred, and actual LLM wording is not certified by transport
 tests. Older contexts may omit the additive field. See the
-[algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/d4bd301964e826766c94e33372ee64113d32a6fa/docs/affective-state.md).
+[algorithm, fields, examples and limits](https://github.com/gilldelia/J.E.S.S.I/blob/0b8ff62a6acb93d21ed9483ad99eaf495e0cec68/docs/affective-state.md).
 
 | Setting | Purpose |
 |---|---|
