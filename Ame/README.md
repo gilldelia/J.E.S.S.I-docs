@@ -6,10 +6,10 @@ Cette bibliothèque contient le domaine d'une persona évolutive. Le schéma v2 
 désormais trois choses qui étaient auparavant mélangées : l'intention du
 créateur, la psyché descriptive et les permissions techniques de l'agent.
 
-L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/Ame/Profiles/jessi.ame.json).
+L'Âme principale visée est [`Profiles/jessi.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/Ame/Profiles/jessi.ame.json).
 JESSI est une partenaire opératrice proactive dont la motivation centrale est
 l'amélioration continue de ses échanges, de son comportement, de son code, de
-sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/Ame/Profiles/jill.ame.json)
+sa mémoire et de ses capacités. [`Profiles/jill.ame.json`](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/Ame/Profiles/jill.ame.json)
 reste une persona laboratoire synthétique pour les tests d'isolation et
 d'évolution.
 
@@ -51,7 +51,7 @@ Une écriture n’est ni un apprentissage attesté, ni une action exécutée.
 
 L'[epic Motivation #227](https://github.com/gilldelia/J.E.S.S.I/issues/227) relie
 ce carnet aux priorités contextuelles, résultats observés, contexte de
-conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/Motivation/maturation.md).
+conversation et [maturation réversible](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/Motivation/maturation.md).
 Aucun projet vide, nouveau service ou moteur autonome n'est ajouté.
 
 ## Une psyché, pas une liste d'ordres
@@ -115,7 +115,7 @@ module `Motivation`, et l'évaluation de ses résultats au module `Learning`.
 - Jill reste une persona de laboratoire distincte de JESSI.
 - Aucun souvenir du scope historique `personal` n'est déplacé automatiquement.
 
-Les [liaisons appareils A2b](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/docs/device-usage.md) sont des métadonnées
+Les [liaisons appareils A2b](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/docs/device-usage.md) sont des métadonnées
 techniques optionnelles `ownership.deviceClients`, jamais des valeurs ou
 intentions de l'Âme. Elles sont initialement absentes, créées uniquement par
 accord OAuth humain explicite et supprimées avec le profil. Une révocation
@@ -137,7 +137,7 @@ Identité, attributs verrouillés/confirmés restent non modifiables dans cette 
 Le journal serveur optionnel `maturation` est enregistré atomiquement avec le
 profil et les snapshots de restauration. Il est absent des définitions de
 création, inactif sans adoption explicite, borné et supprimé avec l'Âme.
-Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/Motivation/maturation.md).
+Voir [API, seuils, sauvegarde et essai d'une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/Motivation/maturation.md).
 
 ## État affectif logiciel distinct
 
@@ -151,12 +151,12 @@ ou modifiées. L'actualisation explicite remplace au plus 32 sources et avance
 les métadonnées du profil sans modifier ses traits, droits ou maturation.
 La dernière écriture conditionnelle est rejouable ; les plus anciennes sont
 refusées. Le snapshot disparaît avec le profil. Voir le
-[contrat, les champs et les limites](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/docs/affective-state.md) : pas de ressenti
+[contrat, les champs et les limites](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/docs/affective-state.md) : pas de ressenti
 humain attesté, boucle de fond ni intégration automatique au ton conversationnel.
 
 ## Tensions contextuelles
 
-Les [tensions contextuelles](https://github.com/gilldelia/J.E.S.S.I/blob/85a2a0d1c9cbfa9ce0988458e4fb119b570b3b01/docs/contextual-tensions.md) proposent une vue
+Les [tensions contextuelles](https://github.com/gilldelia/J.E.S.S.I/blob/70ca838b043cc95b0495fee16b0aa3ebe83e1e3d/docs/contextual-tensions.md) proposent une vue
 temporaire des tendances existantes, selon des citations fournies par le client.
 Elles ne modifient pas le profil, ne créent pas d'émotion et ne donnent aucun
 droit supplémentaire. Leur calcul pur vit dans le domaine Âme ; OAuth et le
