@@ -2,11 +2,11 @@
 
 # Memory.Contracts
 
-Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/a7634d866efe0d3bb650bbd2b19e81bae1d639cc/docs/memory-experience.md) complètent les
+Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/cf810a09a874d339960c8dcb817d2f0510ddff42/docs/memory-experience.md) complètent les
 signaux existants avec l'attribution émotionnelle et les circonstances
 d'apprentissage exprimées/interprétées. Leurs champs sont facultatifs ; les
 anciens souvenirs restent lisibles sans migration ni émotion inventée.
-Les [épisodes relationnels](https://github.com/gilldelia/J.E.S.S.I/blob/a7634d866efe0d3bb650bbd2b19e81bae1d639cc/docs/relational-memory.md) suivent la même
+Les [épisodes relationnels](https://github.com/gilldelia/J.E.S.S.I/blob/cf810a09a874d339960c8dcb817d2f0510ddff42/docs/relational-memory.md) suivent la même
 séparation déclaration/interprétation, sans accès ou statut déduit de leurs clés.
 
 Ce projet est l'unique propriétaire des types publics échangés avec l'API
