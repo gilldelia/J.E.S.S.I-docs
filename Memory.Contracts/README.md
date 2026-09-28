@@ -2,17 +2,29 @@
 
 # Memory.Contracts
 
-Le [contrat d'interprétation](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/Memory.Contracts/MemoryInterpretation.cs) distingue observation,
+Le [contrat d'interprétation](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/Memory.Contracts/MemoryInterpretation.cs) distingue observation,
 hypothèse et incertitude, avec versions et citations bornées. Sa validation
 structurelle n'établit ni vérité sémantique ni autorisation. Le champ facultatif
-est absent sur les anciennes données ; voir le [socle appliqué et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/docs/reconstructive-memory.md).
+est absent sur les anciennes données ; voir le [socle appliqué et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/reconstructive-memory.md).
 
-Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/docs/memory-experience.md) complètent les
+La [compréhension long terme](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/long-term-understanding.md) ajoute la
+perspective historique bornée et `consolidation` (propos, pertinence, date,
+statut et provenance). Depuis #491, le `text` d'une nouvelle consolidation reste
+l'observation reçue (rôle `interpreted-observation`, type `Observation`) ; seuls
+les reçus historiques de rôle `interpretation` portent une reformulation comme
+`text`. Dans tous les cas, `interpretation.observation` est la preuve, jamais le
+texte généré.
+
+Les [annotations d'expérience](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/memory-experience.md) complètent les
 signaux existants avec l'attribution émotionnelle et les circonstances
 d'apprentissage exprimées/interprétées. Leurs champs sont facultatifs ; les
 anciens souvenirs restent lisibles sans migration ni émotion inventée.
-Les [épisodes relationnels](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/docs/relational-memory.md) suivent la même
+Les [épisodes relationnels](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/relational-memory.md) suivent la même
 séparation déclaration/interprétation, sans accès ou statut déduit de leurs clés.
+Les [expériences action→résultat](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/memory-experience.md) (#493) ancrent
+action, résultat et cause dans des citations exactes du texte admis ;
+`ActionOutcomeContract` porte les règles déterministes que le service et ses
+passerelles appliquent à l'identique, sans appel au modèle.
 
 Ce projet est l'unique propriétaire des types publics échangés avec l'API
 Memory. Il est partagé par le service, l'adaptateur MCP et l'ancien client
@@ -22,9 +34,9 @@ Il ne doit contenir ni transport HTTP, ni accès Qdrant, ni fournisseur
 d'embeddings, ni logique métier. Les contrats restent dans l'espace de noms
 `Memory.DTOs` pour préserver la compatibilité source lors de cette extraction.
 
-Le [bilan du cycle de sommeil](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/Memory.Contracts/SleepCycleModels.cs) expose par espace des
-[diagnostics intuitifs agrégés](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/Memory.Contracts/IntuitiveCompilationDiagnostics.cs), sans texte
+Le [bilan du cycle de sommeil](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/Memory.Contracts/SleepCycleModels.cs) expose par espace des
+[diagnostics intuitifs agrégés](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/Memory.Contracts/IntuitiveCompilationDiagnostics.cs), sans texte
 ou identifiant de source. Ils sont réservés au bilan de maintenance interne ;
 ils ne changent aucun droit OAuth ni seuil de compilation. Les anciens rapports
 restent lisibles avec un diagnostic absent (`null`), pas un succès supposé.
-Voir les [unités, états et limites du bilan](https://github.com/gilldelia/J.E.S.S.I/blob/1c3e61555b42a389b51847e2ca5cefea6f3f0553/docs/qa/intuitive-diagnostics.md).
+Voir les [unités, états et limites du bilan](https://github.com/gilldelia/J.E.S.S.I/blob/c26bd1efdf8ea6ec64fdac0cd00fbe0e82adc9e4/docs/qa/intuitive-diagnostics.md).
