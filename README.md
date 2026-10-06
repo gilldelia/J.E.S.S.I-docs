@@ -18,7 +18,7 @@ ressenties, ni reproduction fidèle d'une personne.
 ## Synemne : le produit mémoire autonome
 
 **Synemne** regroupe la mémoire, les Âmes, la perception et la motivation, avec
-API, MCP et tableau de bord. Le [paquet autonome](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/synemne-standalone.md)
+API, MCP et tableau de bord. Le [paquet autonome](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/synemne-standalone.md)
 prépare deux installations isolées — locale ou Azure — à partir des mêmes images,
 sans déployer JESSI, les appareils ou Grafana et sans importer de données personnelles.
 La configuration Azure ne provisionne aucune ressource : son coût, sa disponibilité
@@ -33,19 +33,19 @@ JESSI personnelle existante reste indépendante et inchangée.
   jeton ; chaque appel mémoire désigne l'Âme, jamais un espace de stockage libre.
 - **Un tableau de bord des Âmes.** Une interface française permet de consulter,
   créer et supprimer ses propres profils, sur ordinateur ou téléphone, avec
-  la connexion JESSI existante. Elle est [désactivée par défaut et s'active explicitement](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/ame-dashboard.md) ;
+  la connexion JESSI existante. Elle est [désactivée par défaut et s'active explicitement](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/ame-dashboard.md) ;
   elle ne copie aucun goût du propriétaire. La connexion reste active pendant
   l'utilisation (30 minutes d'inactivité, plafond de 10 heures par défaut), avec
   renouvellement sécurisé côté serveur ; le MFA récent des actions sensibles
   reste exigé. Une activation distincte permet
-  de [gérer les accords appareils par Âme](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/ame-device-dashboard.md) :
+  de [gérer les accords appareils par Âme](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/ame-device-dashboard.md) :
   appairage, application, capacités, limites et révocation. Les appareils restent
   simulés : aucune caméra ni aucun micro n’est capté.
-- **Une consultation distante privée de Grafana.** Une [activation dédiée](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/grafana-public.md)
+- **Une consultation distante privée de Grafana.** Une [activation dédiée](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/grafana-public.md)
   protège le tableau opérateur existant par HTTPS, compte épinglé et MFA.
   Elle n'ouvre ni les sources ni les accès anonymes. Ce tableau global n'est
   pas une interface multi-utilisateurs par Âme et n'ajoute pas de nouvelles mesures.
-  Si sa clé locale doit changer avant OAuth, une [préparation sur copie vérifiée](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/grafana-key-conversion.md)
+  Si sa clé locale doit changer avant OAuth, une [préparation sur copie vérifiée](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/grafana-key-conversion.md)
   conserve les données sur place et impose un essai de redémarrage/retour arrière.
 - **Une mémoire sélective à trois couches.** Les observations admises entrent
   en court terme. La consolidation peut en conserver une partie en long terme ;
@@ -53,13 +53,13 @@ JESSI personnelle existante reste indépendante et inchangée.
   Le rappel garde la provenance, la couche et les raisons de sa décision.
   Aujourd'hui, la compilation intuitive exige un accord textuel normalisé :
   elle ne généralise pas encore des expériences reformulées. Le
-  [diagnostic reproductible](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/qa/intuitive-diagnostics.md) distingue cette
+  [diagnostic reproductible](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/qa/intuitive-diagnostics.md) distingue cette
   limite d'une panne ou d'un rappel sans contexte applicable.
 - **Une perception qui tient compte des acquis.** En mode adaptatif avec le
   classifieur local, une découverte, une confirmation encore fragile ou une
   nuance peut être retenue ; une répétition sans apport peut rester éphémère.
   La comparaison a lieu avant la décision, dans la mémoire autorisée.
-  Voir les [règles et limites de cette comparaison](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/contextual-perception.md).
+  Voir les [règles et limites de cette comparaison](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/contextual-perception.md).
 - **Une interprétation distincte de sa source.** Les nouvelles admissions par
   Âme tentent automatiquement une lecture personnelle avec le modèle local
   de Perception et une perspective limitée au profil autorisé. Le reçu et le
@@ -67,13 +67,13 @@ JESSI personnelle existante reste indépendante et inchangée.
   une panne ne devient pas un faux succès. Cette annotation suit le souvenir
   au long terme, sans réécrire les anciennes données ni constituer une preuve
   intuitive indépendante. Au passage en long terme, une nouvelle
-  [compréhension propre à l'Âme](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/long-term-understanding.md) sépare le propos
+  [compréhension propre à l'Âme](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/long-term-understanding.md) sépare le propos
   rapporté de sa pertinence personnelle, à partir de la source et du profil daté.
   La consolidation utilise Qwen 14B, fixé dans le code : elle reformule d'abord
   les faits sans profil, puis sélectionne séparément l'attention personnelle.
   La perception conserve son modèle 4B ; aucun choix de modèle par Âme n'est ajouté.
   Un contrôle refusé conserve l'observation avec un statut explicite ; les anciens
-  souvenirs ne sont pas réécrits. Voir les [fondements et limites](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/reconstructive-memory.md).
+  souvenirs ne sont pas réécrits. Voir les [fondements et limites](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/reconstructive-memory.md).
 - **Des intérêts issus de traces, pas des goûts copiés.** Le carnet de chaque
   Âme commence vide. Des appels explicites peuvent y ajouter des projets ou
   traiter des souvenirs sourcés pour faire émerger et réviser des pistes.
@@ -88,18 +88,18 @@ JESSI personnelle existante reste indépendante et inchangée.
 - **Des tendances adaptées à l'échange.** Le client peut signaler, par des
   citations exactes, laquelle des tendances existantes paraît pertinente ici.
   Cette vue reste temporaire et interprétative, sans réécrire la personnalité.
-  Voir le [contrat et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/contextual-tensions.md) ; la qualité de
+  Voir le [contrat et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/contextual-tensions.md) ; la qualité de
   sa restitution par un LLM reste à évaluer séparément.
 - **Un état affectif logiciel révisable.** Des appels explicites peuvent retenir
   des émotions attribuées à l'Âme dans ses souvenirs. L'état commence inconnu,
   sépare déclarations et interprétations, et perd le soutien d'une source retirée.
   Le contexte conversationnel transmet sa vue actuelle sans la modifier ni
   copier les émotions du propriétaire. Cela n'impose pas un ton et ne certifie
-  pas les réponses du modèle. Voir le [contrat et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/affective-state.md).
+  pas les réponses du modèle. Voir le [contrat et ses limites](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/affective-state.md).
 
 ## Supervision locale
 
-L'option de [supervision locale](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/application-observability.md)
+L'option de [supervision locale](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/application-observability.md)
 ajoute un tableau Grafana français : disponibilité HTTP, fraîcheur de collecte,
 appels, refus, latences et opérations mémoire. Les nouvelles mesures ne
 contiennent ni texte de souvenir ni identité d'Âme. Une panne de collecte reste
@@ -121,7 +121,7 @@ OAuth/MFA, distincte de ce tableau.
 
 Ce parcours ne réentraîne pas les poids du LLM. Ici, « apprendre » désigne
 l'évolution des souvenirs, des traces documentées et, après adoption, du profil.
-Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/Memory/INVARIANTS.md) décrivent les règles du cycle.
+Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/Memory/INVARIANTS.md) décrivent les règles du cycle.
 
 ## Les briques du projet
 
@@ -133,12 +133,13 @@ Les [invariants mémoire](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9
 | [Ame](Ame/README.md) | Profils, valeurs, tendances et évolution explicite ; droits techniques séparés. |
 | [Motivation](Motivation/README.md) | Carnet persistant, choix contextuel et journal d'expériences par Âme. |
 | [Memory.Mcp](Memory.Mcp/README.md) | Entrées HTTP/MCP, contrôle OAuth et coordination des modules. |
-| [DeviceHub](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/DeviceHub/README.md) | Service HTTP indépendant : catalogue fictif, appairage et droits explicites par application/Âme, isolés par propriétaire OAuth et révocables. Vérification auprès de l'autorité Âme, sans accès matériel. |
+| [DeviceHub](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/DeviceHub/README.md) | Service HTTP indépendant : catalogue fictif, appairage et droits explicites par application/Âme, isolés par propriétaire OAuth et révocables. Vérification auprès de l'autorité Âme, sans accès matériel. |
+| [Senses](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/senses.md) | Service HTTP indépendant : observations simulées revalidées à chaque lecture et contexte temporaire borné, sans capture ni mémoire durable. |
 | [Ame.Console](Ame.Console/README.md) | Ancien client de compatibilité, pas le point d'entrée du parcours OAuth par Âme. |
 
-Pour contribuer, commencer par la [carte du projet](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/project-map.md) :
+Pour contribuer, commencer par la [carte du projet](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/project-map.md) :
 elle indique les points d'entrée, contrats, invariants et tests à lire selon
-l'évolution, sans parcourir tout le dépôt. L'[architecture cible](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/architecture/cognitive-target.md)
+l'évolution, sans parcourir tout le dépôt. L'[architecture cible](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/architecture/cognitive-target.md)
 distingue les modules existants des travaux futurs.
 
 ## Essayer en local
@@ -147,11 +148,11 @@ L'accès au dépôt source est nécessaire. Sur Windows, utiliser **PowerShell 7
 et **Docker Desktop en mode conteneurs Linux** ; ne pas lancer les projets
 .NET, leurs DLL ou leurs tests directement sur l'hôte.
 
-Le [guide local](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/local-memory-real.md) détaille les modèles,
+Le [guide local](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/local-memory-real.md) détaille les modèles,
 le support GPU NVIDIA du profil fourni et le stockage persistant. Prévoir les
 téléchargements des images et modèles au premier démarrage. Le profil local
 à jeton statique sert au diagnostic ; pour tester les comptes et l'isolation
-par Âme, suivre le [guide OAuth auto-hébergé](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/home-oauth.md).
+par Âme, suivre le [guide OAuth auto-hébergé](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/home-oauth.md).
 
 ### Préparer les services
 
@@ -182,7 +183,7 @@ HTTPS configurée, pas le port local de Keycloak. Avant de se connecter,
 cette autorité doit être accessible, avec un certificat valide et des URL
 de retour cohérentes, et appartenir à **sa propre installation**.
 Le guide distingue la préparation DNS/réseau du
-[démarrage de la passerelle HTTPS](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runbooks/home-oauth.md#démarrer-https).
+[démarrage de la passerelle HTTPS](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runbooks/home-oauth.md#démarrer-https).
 Les domaines préconfigurés ne sont pas un service fourni aux contributeurs.
 Ne pas désactiver TLS ou les contrôles d'identité pour franchir cette étape.
 
@@ -195,7 +196,7 @@ le parcours utilisateur OAuth :
 - se connecter, puis lister les Âmes avec `GET /v1/ames` ;
 - choisir l'`ameId` retourné pour les routes `/v1/ames/{ameId}/...` ;
 - consulter les [contrats API/MCP](Memory.Mcp/README.md) et le
-  [protocole d'essai sur une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/Motivation/maturation.md#essai-utilisateur-sur-une-semaine).
+  [protocole d'essai sur une semaine](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/Motivation/maturation.md#essai-utilisateur-sur-une-semaine).
 
 Les scénarios automatisés qui créent des données doivent toujours viser le
 laboratoire jetable, jamais les souvenirs personnels. Ne jamais publier les
@@ -207,10 +208,10 @@ L'interface MCP est exposée sur `/mcp`. `ame_begin` démarre la sélection
 pour une conversation ; les appels suivants conservent le même `ameId` et
 le même `sessionId`. `ame_context` recharge le profil descriptif et ses
 pistes ; `memory_perceive` et `memory_recall` alimentent et consultent la mémoire.
-Le client peut joindre des [émotions attribuées et circonstances d'apprentissage](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/memory-experience.md)
+Le client peut joindre des [émotions attribuées et circonstances d'apprentissage](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/memory-experience.md)
 aux observations : déclarations et interprétations restent séparées, sans
 inventer ce qui est inconnu ni actualiser automatiquement l'état affectif.
-Les [épisodes relationnels sourcés](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/relational-memory.md) permettent aussi
+Les [épisodes relationnels sourcés](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/relational-memory.md) permettent aussi
 de conserver erreurs, corrections, engagements et résolutions rapportés,
 sans transformer une interprétation en fait ou en action automatique.
 `ame_affect_context` et `ame_affect_update` permettent séparément de consulter
@@ -233,13 +234,13 @@ données synthétiques. Les tests sont sélectionnés selon l'impact : projets
 concernés, dépendances/consommateurs et garanties critiques ; suite complète
 pour un changement transversal ou incertain. Une modification purement
 documentaire ne déclenche pas une CI applicative.
-Voir le [workflow GitHub Flow](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/development-workflow.md), la
-[CI locale](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/local-ci.md), sa [sélection par impact](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/ci-impact.md)
-et la [certification M12](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/qa/m12-e2e.md).
+Voir le [workflow GitHub Flow](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/development-workflow.md), la
+[CI locale](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/local-ci.md), sa [sélection par impact](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/ci-impact.md)
+et la [certification M12](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/qa/m12-e2e.md).
 
 Un seul assistant pilote les demandes GitHub avec des sous-agents spécialisés
 choisis selon le besoin. Auteur, reviewer et validation restent indépendants.
-La première priorité est un [socle runner/sandbox réutilisable](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/runner-sandbox.md),
+La première priorité est un [socle runner/sandbox réutilisable](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/runner-sandbox.md),
 vérifié sans réécrire son code pour chaque livraison. Puis les issues actionnables
 sont traitées de façon autonome, dans les limites autorisées.
 Les lots utilisent des branches courtes de main vers main, sans promotions intermédiaires.
@@ -248,7 +249,7 @@ historiques ; il n'est pas implicitement adapté à ce nouveau chemin.
 
 Le lanceur préautorisé permet les cycles ordinaires sans nouvelle UAC après
 son installation administrative. Il propose aussi un
-[diagnostic à la demande](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/local-ci.md#diagnostic-à-la-demande-sans-nouvelle-uac)
+[diagnostic à la demande](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/local-ci.md#diagnostic-à-la-demande-sans-nouvelle-uac)
 limité à la VM CI, sans démarrage, réparation ni modification des baux.
 Une mise à jour de sa partie privilégiée reste une intervention administrative
 distincte, revue et contrôlée ; les observations ne certifient pas les tests.
@@ -256,11 +257,11 @@ distincte, revue et contrôlée ; les observations ne certifient pas les tests.
 Pour proposer une contribution :
 
 1. Définir un résultat limité et ses critères d'acceptation dans une issue.
-2. Lire les [règles du dépôt](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/AGENTS.md), puis le parcours de la carte concerné.
+2. Lire les [règles du dépôt](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/AGENTS.md), puis le parcours de la carte concerné.
 3. L'auteur développe sur une branche courte depuis `main`, avec tests et doc.
    **Un résultat indépendant = une PR** ; privilégier des parties constructibles
    et testables séparément, avec leurs contrats de coopération.
-4. Suivre le [workflow unique](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/development-workflow.md) : PR `main`, revue
+4. Suivre le [workflow unique](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/development-workflow.md) : PR `main`, revue
    indépendante, tests/PO, fusion puis contrôle court du vrai main.
    Une seule fonctionnalité active ; les bloqueurs passent avant la suivante.
 
@@ -293,7 +294,7 @@ de l'extension des mesures applicatives, qui reste l'étape suivante.
 sans donner accès au dépôt source privé. Les liens vers du code, des contrats
 ou des guides internes nécessitent cet accès.
 
-La seule exception GitHub Actions autorisée est la [publication des README](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/docs/readme-publication.md)
+La seule exception GitHub Actions autorisée est la [publication des README](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/docs/readme-publication.md)
 sélectionnés depuis `main`. Elle conserve les autres fichiers du dépôt public
 et ne copie ni configuration, ni profil, ni guide interne. Le secret d'accès
 au seul dépôt documentaire est nécessaire ; la CI et la QA restent locales.
@@ -301,4 +302,4 @@ L'ancien `scripts/publish-docs.ps1` est retiré et n'effectue plus aucune copie.
 
 ## Licence
 
-Voir le fichier [LICENSE](https://github.com/gilldelia/J.E.S.S.I/blob/b240d76af9468eb114e233fd410000c5558fea58/LICENSE) du dépôt source.
+Voir le fichier [LICENSE](https://github.com/gilldelia/J.E.S.S.I/blob/634c3acc4f1c98fed51238c304d0800ad223f731/LICENSE) du dépôt source.
